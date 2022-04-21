@@ -56,9 +56,17 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\PlayerData.cs" />
     <Compile Include="Assets\SaveManager.cs" />
     <Compile Include="Assets\SaveData.cs" />
-    <Compile Include="Assets\PlayerData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\0File.txt" />
+    <None Include="Assets\3File.txt" />
+    <None Include="Assets\4File.txt" />
+    <None Include="Assets\5File.txt" />
+    <None Include="Assets\2File.txt" />
+    <None Include="Assets\1File.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -14,11 +14,15 @@ public class SaveManager : MonoBehaviour
     [SerializeField]
     private Button[] saveButton;
 
+    private SaveData saveData;
+
     public int value = 0;
     public string folderName = "";
 
     private void Start()
     {
+        saveData = GetComponent<SaveData>();
+
         int value = 0;
         List<string> files = new List<string>();
         var emptyLis = new List<string>();
@@ -54,9 +58,13 @@ public class SaveManager : MonoBehaviour
 
     public void Levale(int value1)
     {
-        name = DateTime.Now.ToString("yyyy-MM-dd-tt-mm-ss");
         value = value1;
-        StartCoroutine("ScreenShot");
+        name = value.ToString();
+
+        if (saveData.SaveMode == true)
+        {
+            StartCoroutine("ScreenShot");
+        }
     }
 
     IEnumerator ScreenShot()

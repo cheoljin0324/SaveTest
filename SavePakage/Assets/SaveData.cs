@@ -9,23 +9,57 @@ public class SaveData : MonoBehaviour
     private PlayerData playerData;
     SaveManager saveManager;
 
+    public bool SaveMode = false;
+
     public void Start()
     {
         saveManager = GetComponent<SaveManager>();
+        Debug.Log(Application.dataPath);
+    }
+
+    public void SetSaveMode()
+    {
+        if (SaveMode == false)
+        {
+            SaveMode = true;
+        }
+        else
+        {
+            SaveMode = false;
+        }
+    }
+
+    public void InButton()
+    {
+        if (SaveMode == true)
+        {
+            SaveInData();
+        }
+        else
+        {
+            LoadOutData();
+        }
     }
 
     void SaveInData()
     {
-        string JsonData = JsonUtility.ToJson(playerData,true);
-        string path = Application.dataPath + "Resources/"+saveManager.value.ToString()+"/"+"playerData.json";
+        FileInfo info =new FileInfo(Application.dataPath + "/" + saveManager.value.ToString() + "File.txt");
+        if (info.Exists)
+        {
+            File.Delete(Application.dataPath + "/" + saveManager.value.ToString() + "File.txt");
+        }
+        string JsonData = JsonUtility.ToJson(playerData, true);
+        string path = Application.dataPath + "/" + saveManager.value.ToString() + "File.txt";
         File.WriteAllText(path, JsonData);
+        Debug.Log(path);
     }
 
     void LoadOutData()
     {
-        string path = Application.dataPath + "Resources/" + saveManager.value.ToString() + "/" + "playerData.json";
+        string path = Application.dataPath+"/"+saveManager.value.ToString()+ "File.txt";
         string JsonData = File.ReadAllText(path);
         JsonUtility.FromJson<PlayerData>(JsonData);
+        Debug.Log("LoadData");
 
     }
 
