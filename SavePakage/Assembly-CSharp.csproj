@@ -62,9 +62,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\0File.txt" />
-    <None Include="Assets\3File.txt" />
-    <None Include="Assets\4File.txt" />
-    <None Include="Assets\5File.txt" />
     <None Include="Assets\2File.txt" />
     <None Include="Assets\1File.txt" />
   </ItemGroup>

@@ -1,4 +1,1 @@
-{
-    "PlayerLevel": 3,
-    "Chapter1": false
-}
+{"PlayerLevel":0,"Chapter1":false}

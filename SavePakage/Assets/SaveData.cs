@@ -48,7 +48,7 @@ public class SaveData : MonoBehaviour
         {
             File.Delete(Application.dataPath + "/" + saveManager.value.ToString() + "File.txt");
         }
-        string JsonData = JsonUtility.ToJson(playerData, true);
+        string JsonData = JsonUtility.ToJson(playerData);
         string path = Application.dataPath + "/" + saveManager.value.ToString() + "File.txt";
         File.WriteAllText(path, JsonData);
         Debug.Log(path);
@@ -58,7 +58,8 @@ public class SaveData : MonoBehaviour
     {
         string path = Application.dataPath+"/"+saveManager.value.ToString()+ "File.txt";
         string JsonData = File.ReadAllText(path);
-        JsonUtility.FromJson<PlayerData>(JsonData);
+        Debug.Log(path);
+        playerData=JsonUtility.FromJson<PlayerData>(JsonData);
         Debug.Log("LoadData");
 
     }

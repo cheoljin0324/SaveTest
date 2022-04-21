@@ -12,7 +12,7 @@ public class SaveManager : MonoBehaviour
     [SerializeField]
     private Camera camera1;
     [SerializeField]
-    private Button[] saveButton;
+    private Image[] saveButton;
 
     private SaveData saveData;
 
@@ -50,7 +50,8 @@ public class SaveManager : MonoBehaviour
         {
             if (checkFile[i] == true)
             {
-                saveButton[i].image.sprite = LoadSprite(files[i]);
+                saveButton[i].gameObject.SetActive(true);
+                saveButton[i].sprite = LoadSprite(files[i]);
             }
 
         }
@@ -59,6 +60,7 @@ public class SaveManager : MonoBehaviour
     public void Levale(int value1)
     {
         value = value1;
+        saveButton[value].gameObject.SetActive(true);
         name = value.ToString();
 
         if (saveData.SaveMode == true)
@@ -113,7 +115,7 @@ public class SaveManager : MonoBehaviour
         tex.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0);
         tex.Apply();
         Sprite sprite = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100.0f);
-        saveButton[value].image.sprite = sprite;
+        saveButton[value].sprite = sprite;
         RenderTexture.active = null;
 
         byte[] bytes;
