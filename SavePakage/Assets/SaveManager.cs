@@ -14,7 +14,7 @@ public class SaveManager : MonoBehaviour
     [SerializeField]
     private Button[] saveButton;
 
-    private int value = 0;
+    public int value = 0;
     public string folderName = "";
 
     private void Start()
